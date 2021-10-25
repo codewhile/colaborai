@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="pessoas">
+        <item>@drawable/pessoa</item>
+        <item>@drawable/pessoa2</item>
+        <item>@drawable/pessoa3</item>
+        <item>@drawable/pessoa4</item>
+        <item>@drawable/pessoa5</item>
+        <item>@drawable/pessoa6</item>
+        <item>@drawable/pessoa</item>
+        <item>@drawable/pessoa2</item>
+        <item>@drawable/pessoa3</item>
+        <item>@drawable/pessoa4</item>
+        <item>@drawable/pessoa5</item>
+        <item>@drawable/pessoa6</item>
+        <item>@drawable/pessoa</item>
+        <item>@drawable/pessoa2</item>
+        <item>@drawable/pessoa3</item>
+        <item>@drawable/pessoa4</item>
+        <item>@drawable/pessoa5</item>
+        <item>@drawable/pessoa6</item>
+        <item>@drawable/pessoa</item>
+        <item>@drawable/pessoa2</item>
+        <item>@drawable/pessoa3</item>
+        <item>@drawable/pessoa4</item>
+        <item>@drawable/pessoa5</item>
+        <item>@drawable/pessoa6</item>
+        <item>@drawable/pessoa</item>
+        <item>@drawable/pessoa2</item>
+        <item>@drawable/pessoa3</item>
+        <item>@drawable/pessoa4</item>
+        <item>@drawable/pessoa5</item>
+        <item>@drawable/pessoa6</item>
+    </array>
+</resources>
