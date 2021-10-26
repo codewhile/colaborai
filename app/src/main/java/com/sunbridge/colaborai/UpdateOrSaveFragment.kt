@@ -5,16 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import com.google.android.material.textfield.TextInputEditText
 
-class UpdateFragment() :
+class UpdateOrSaveFragment() :
     DialogFragment() {
 
     private val presenter =
-        UpdatePresenter(AlunoRepository)
+        UpdateOrSavePresenter(EstagiarioRepository)
 
-    var listener:AlunoSavedOrUpdateListener? = null
+    var listener:EstagiarioSavedOrUpdateListener? = null
 
 
 
@@ -24,7 +25,7 @@ class UpdateFragment() :
 
     @JvmName("AddOrUpdateListener")
     fun setListener(savedOrUpdateListener:
-                    AlunoSavedOrUpdateListener) {
+                    EstagiarioSavedOrUpdateListener) {
 
         this.listener =
             savedOrUpdateListener
@@ -53,18 +54,28 @@ class UpdateFragment() :
 
             button.setOnClickListener {
 
-                val nome = view.findViewById<TextInputEditText>(R.id.inputName).text.toString()
+                val nome =
+                    view.findViewById<TextInputEditText>(R.id.inputName).text.toString()
 
-                val nota = view.findViewById<TextInputEditText>(R.id.inputNota).text.toString().toFloat()
+                val nota =
+                    view.findViewById<TextInputEditText>(R.id.inputFaculdade).text.toString()
 
-                val periodo = view.findViewById<TextInputEditText>(R.id.inputPeriodo).text.toString().toInt()
+                val periodo =
+                    view.findViewById<TextInputEditText>(R.id.inputPeriodo).text.toString().toInt()
 
-                val aluno = Aluno(id, nome, periodo, nota)
+                val faculdade =
+                    view.findViewById<TextInputEditText>(R.id.inputFaculdade).text.toString()
+
+                val curso =
+                    view.findViewById<TextInputEditText>(R.id.inputCurso).text.toString()
+
+                val aluno =
+                    Estagiario(id, nome, periodo, faculdade, curso)
 
                 if (presenter.save(aluno)) {
 
                     listener?.let {
-                        listener!!.onAlunoSavedOrUpdated()
+                        listener!!.onEstagiarioSavedOrUpdated()
                     }
 
                     dialog?.dismiss()
@@ -75,21 +86,21 @@ class UpdateFragment() :
 
     }
 
-    interface AlunoSavedOrUpdateListener {
-        fun onAlunoSavedOrUpdated()
+    interface EstagiarioSavedOrUpdateListener {
+        fun onEstagiarioSavedOrUpdated()
     }
 
     companion object {
 
         const val TAG =
-            "update_tag_fragment"
+            "EXTRA_UPDATE_TAG_FRAGMENT"
 
         private const val ID =
-            "fragment_aluno_id"
+            "EXTRA_ESTAGIARIO_ID"
 
         fun newInstance(id: Long = 0) =
 
-            UpdateFragment().apply {
+            UpdateOrSaveFragment().apply {
                 this.arguments = Bundle().apply {
                     putLong(ID, id)
                 }

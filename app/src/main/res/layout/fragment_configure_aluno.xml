@@ -34,7 +34,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Nota"
+            android:hint="Período"
             app:hintAnimationEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -46,14 +46,25 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Periodo"
+                android:hint="Faculdade"
                 app:hintAnimationEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputNota"
+                    android:id="@+id/inputFaculdade"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number|numberDecimal" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Curso">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputCurso"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
             </com.google.android.material.textfield.TextInputLayout>
         </com.google.android.material.textfield.TextInputLayout>
     </com.google.android.material.textfield.TextInputLayout>

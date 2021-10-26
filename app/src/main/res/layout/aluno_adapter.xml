@@ -38,13 +38,20 @@
         android:textStyle="italic" />
 
     <TextView
-        android:id="@+id/txtNota"
+        android:id="@+id/txtCurso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="ADS" />
+
+    <TextView
+        android:id="@+id/txtFaculdade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="23dp"
         android:gravity="center"
-        android:text="CR do aluno"
+        android:text="Faculdade"
         android:textStyle="italic" />
 
 </LinearLayout>

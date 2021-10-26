@@ -10,13 +10,13 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class AlunoFragment :
+class EstagiarioFragment :
     Fragment(),
-    IAlunosView {
+    IEstagiarioView {
 
 
     private val presenter =
-        AlunoPresenter(this, AlunoRepository)
+        EstagiarioPresenter(this, EstagiarioRepository)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,31 +41,31 @@ class AlunoFragment :
             it.findViewById<FloatingActionButton>(R.id.btnAdd).setOnClickListener {
 
                 val dialog =
-                    UpdateFragment.newInstance(0)
+                    UpdateOrSaveFragment.newInstance(0)
 
                 dialog.listener = object :
-                    UpdateFragment.AlunoSavedOrUpdateListener {
+                    UpdateOrSaveFragment.EstagiarioSavedOrUpdateListener {
 
-                    override fun onAlunoSavedOrUpdated() {
+                    override fun onEstagiarioSavedOrUpdated() {
                         recycler.adapter?.notifyDataSetChanged()
                     }
 
                 }
 
-                dialog.show(parentFragmentManager, UpdateFragment.TAG)
+                dialog.show(parentFragmentManager, UpdateOrSaveFragment.TAG)
 
             }
 
         }
     }
 
-    override fun showAlunos(alunos: MutableList<Aluno>) {
+    override fun showEstagiarios(estagiarios: MutableList<Estagiario>) {
 
         val recyclerStudents =
             view?.findViewById<RecyclerView>(R.id.recyclerView)
 
         val alunoAdapter =
-            AlunoAdapter(alunos, requireContext(), parentFragmentManager)
+            EstagiarioAdapter(estagiarios, requireContext(), parentFragmentManager)
 
         recyclerStudents?.adapter =
             alunoAdapter
@@ -74,12 +74,12 @@ class AlunoFragment :
             GridLayoutManager(requireContext(), 3)
 
 
-        initSwipeGesture(recyclerStudents, alunos)
+        initSwipeGesture(recyclerStudents, estagiarios)
 
 
     }
 
-    private fun initSwipeGesture(recyclerStudents: RecyclerView?, alunos: MutableList<Aluno>) {
+    private fun initSwipeGesture(recyclerStudents: RecyclerView?, estagiarios: MutableList<Estagiario>) {
         val swipe = object : ItemTouchHelper.SimpleCallback(0,
             ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
 
@@ -92,7 +92,7 @@ class AlunoFragment :
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
                 val position = viewHolder.adapterPosition
-                presenter.deleteAlunById(alunos[position].id)
+                presenter.deleteAlunById(estagiarios[position].id)
                 recyclerStudents?.adapter?.notifyItemRemoved(position)
 
             }

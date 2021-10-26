@@ -1,10 +1,11 @@
 package com.sunbridge.colaborai
 
-data class Aluno(
+data class Estagiario(
     var id: Long,
     var nome: String,
     var periodo: Int,
-    var nota: Float
+    var faculdade: String,
+    var curso:String
 ) {
 
 }
